@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Crushbook</title>
+    {% load staticfiles %}
+
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/dropdown.min.js' %}"></script>
+    <script src="{% static 'js/transition.min.js' %}"></script>
+    <script src="{% static 'js/tab.min.js' %}"></script>
+
+
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/components/0.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/components/1.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/components/2.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/components/3.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/components/4.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/components/5.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/components/transition.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/components/tab.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/components/menu.min.css' %}" />
+
+</head>
+<body>
+
+
+
+<div class="outer">
+<div class="middle">
+<div class="inner">
+    <form id="myForm" method="post">{% csrf_token %}
+        <h1 id="banner">We connect mutual crushes</h1>
+        <div class="ui fluid form segment changingColor" id="container">
+            <div class="two fields">
+                <div class="field    {% if form.first.errors %}error{% endif %}">
+                    <input id="id_first" name="first" type="text" placeholder="Your email" type="text">
+                </div>
+                <div class="field {% if form.second.errors %}error{% endif %}">
+                    <input id="id_second" name="second" type="text" placeholder="Your crush's email" type="text">
+                </div>
+            </div>
+            <div class=" two fields">
+                <div class="field">
+                    <div class="ui selection dropdown">
+                        <input type="hidden" name="crushtype">
+                        <div class="default text">White Crush</div>
+                        <i class="dropdown icon"></i>
+                        <div class="menu">
+                            <div class="item" data-value="0">White Crush</div>
+                            <div class="item" style="background-color:#e3e4fa ;" data-value="1">Blue Crush</div>
+                            <div class="item" style="background-color:#bcc6cc;" data-value="2">Silver Crush</div>
+                            <div class="item" style="background-color:#edda74 ;" data-value="3">Golden Crush</div>
+                            <div class="item" style="background-color:#e5e4e2 ;" data-value="4">Platinum Crush</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="field">
+                    <div id="submit" class="ui fluid submit button">Submit</div>
+                </div>
+            </div>
+        </div>
+
+    <div class="ui top attached tabular menu">
+            <a class="active item" data-tab="first">How it works</a>
+            <a style="color:white;" class="item" data-tab="second">Crush Types</a>
+            <a style="color:white;" class="item" data-tab="third">About Us</a>
+            <a style="color:white;" class="item" data-tab="fourth">Privacy Policy</a>
+        </div>
+        <div class="message ui bottom attached active tab segment" data-tab="first">
+            All you need is your crush's email address. Your crush will receive an email letting her/him know that someone has entered her/his email address but without mentioning your email address. Once you and your crush have entered matching email addresses, the couple will be notified of each other. Otherwise nothing will happen. Enjoy!
+        </div>
+        <div class="message ui bottom attached tab segment" data-tab="second">
+            Second
+        </div>
+        <div class="message ui bottom attached tab segment" data-tab="third">
+            We are two programmers that want to connect you with your crush.<br>
+            <br>
+            You can contact us with following email addresses:<br>
+            erfaan.abdi@gmail.com<br>
+            m.shafie@gmail.com<br>
+
+
+        </div>
+        <div class="message ui bottom attached tab segment" data-tab="fourth">
+            Your information will always be kept confidential.<br>
+        </div>
+</form>
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+    $('.ui.dropdown').dropdown();
+    $('.menu .item').tab();
+/*  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-59173086-1', 'auto');
+  ga('send', 'pageview');
+*/
+</script>
+</body>
+
+</html>
